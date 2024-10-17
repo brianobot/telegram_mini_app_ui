@@ -1,0 +1,33 @@
+.app_wrapper {
+    position: relative;
+    height: 100vh;
+
+    .bottom_nav_fixed {
+        position: absolute;
+        width: 90%;
+        padding: 10px 30px;
+        background: var(--yellow);
+        bottom: 60px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: var(--radius);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+
+            &.active {
+                background: var(--active_boottom_nav);
+            }
+
+            img {
+                width: 100%;
+            }
+        }
+    }
+}

@@ -1,0 +1,46 @@
+.welcome {
+    background: var(--brown);
+    height: 100vh;
+    width: 100%;
+    // padding: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    .welcome_center {
+        padding-bottom: 40px;
+
+        h1,
+        p {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        p {
+            font-size: 18px;
+        }
+    }
+
+    .start_button {
+        position: absolute;
+        bottom: 40px;
+        border-radius: var(--radius);
+        background: var(--yellow);
+        width: 90%;
+        padding: 10px 0;
+        border: none;
+        outline: none;
+
+        span {
+            font-size: 18px;
+            color: black;
+            font-weight: 600;
+        }
+    }
+}
