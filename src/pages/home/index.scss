@@ -39,10 +39,11 @@
         width: 90%;
         margin: auto;
         margin-top: 80px;
+        margin-bottom: 40px;
 
         .question_box {
             position: relative;
-            padding: 60px 20px 40px;
+            padding: 60px 25px 40px;
             background: white;
             border-radius: var(--radius);
 
@@ -60,6 +61,52 @@
             >p {
                 font-size: 18px;
             }
+        }
+    }
+
+    .options {
+        width: 90%;
+        margin: auto;
+
+        .option {
+            display: flex;
+            padding: 12px 25px;
+            justify-content: space-between;
+            background: white;
+            border-radius: var(--radius);
+            margin-bottom: 25px;
+            align-items: center;
+
+            span {
+                font-size: 20px;
+            }
+
+            .radio {
+                width: 24px;
+                height: 24px;
+                border-radius: 50%;
+                border: 1px solid black;
+            }
+
+            &.selected {
+                background: #aa6c39;
+            }
+        }
+    }
+
+    .next_btn {
+        margin: 50px auto;
+        width: 90%;
+        display: block;
+        background: var(--dark_brown);
+        padding: 15px 0;
+        border-radius: var(--radius);
+        outline: none;
+        border: none;
+
+        span {
+            color: white;
+            font-size: 20px;
         }
     }
 }

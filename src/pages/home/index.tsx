@@ -1,8 +1,14 @@
+import { useState } from "react";
 import "./index.scss";
 import { buildStyles, CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
+import checkIcon from "../../assets/png/material-symbols_check-small-rounded.png";
 
 const Home = () => {
+  const options = ["2018", "2019", "2018"];
+
+  const [selected, setselected] = useState<number>();
+
   return (
     <div className="home">
       <p className="question_count">
@@ -31,6 +37,27 @@ const Home = () => {
           <p>In what year did Rema release his debut single 'Dumebi'</p>
         </div>
       </div>
+      <div className="options">
+        {options?.map((opt, idx) => {
+          return (
+            <div
+              className={`option ${selected === idx ? "selected" : ""}`}
+              key={idx}
+              onClick={() => setselected(idx)}
+            >
+              <span>{opt}</span>
+              {selected === idx ? (
+                <img src={checkIcon} alt="" />
+              ) : (
+                <div className="radio"></div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+      <button className="next_btn">
+        <span>Next</span>
+      </button>
     </div>
   );
 };
