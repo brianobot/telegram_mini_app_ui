@@ -1,63 +1,121 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./index.scss";
 import { buildStyles, CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import checkIcon from "../../assets/png/material-symbols_check-small-rounded.png";
+import useRequests from "../../hooks/req";
+import { BallTriangle } from "react-loader-spinner";
+import { toast } from "react-toastify";
 
 const Home = () => {
-  const options = ["2018", "2019", "2018"];
-
   const [selected, setselected] = useState<number>();
+  const [selectedAnswer, setselectedAnswer] = useState<string>();
 
+  // hook to get questions
+  const { handleGetQuestion, questionData, handleMarkQuestion, question } =
+    useRequests();
+
+  // fetch question on page load
+  useEffect(() => {
+    handleGetQuestion({});
+    return;
+  }, []);
+
+  const handleAnswer = (answer?: string) => {
+    if (answer) {
+      if (answer === questionData?.data?.answer) {
+        toast.success(<p>🎉 Correct! </p>);
+        setselected(undefined);
+        setselectedAnswer(undefined);
+      } else {
+        toast.error(<p>❌ Wrong!</p>);
+        setselected(undefined);
+        setselectedAnswer(undefined);
+      }
+    }
+  };
+
+  console.log("====================================");
+  console.log(selectedAnswer);
+  console.log("====================================");
   return (
     <div className="home">
-      <p className="question_count">
-        <span>2</span> / <span>7</span>
-      </p>
-      <div className="big_count">
-        <div className="big_count_brown"></div>
-        <span>700</span>
-      </div>
-      <div className="question_area">
-        <div className="question_box">
-          <div className="progress">
-            <CircularProgressbar
-              value={2}
-              styles={buildStyles({
-                pathColor: `#1c0e00`,
-                textColor: "#1c0e00",
-                trailColor: "#faa661",
-                backgroundColor: "white",
-                textSize: 40,
-              })}
-              maxValue={7}
-              text={`${2}`}
-            />
-          </div>
-          <p>In what year did Rema release his debut single 'Dumebi'</p>
+      {questionData?.loading || !questionData?.data ? (
+        <div className="loader_container">
+          <BallTriangle
+            height={100}
+            width={100}
+            radius={5}
+            color="var(--dark_brown)"
+            ariaLabel="ball-triangle-loading"
+            wrapperStyle={{}}
+            wrapperClass=""
+            visible={true}
+          />
         </div>
-      </div>
-      <div className="options">
-        {options?.map((opt, idx) => {
-          return (
-            <div
-              className={`option ${selected === idx ? "selected" : ""}`}
-              key={idx}
-              onClick={() => setselected(idx)}
-            >
-              <span>{opt}</span>
-              {selected === idx ? (
-                <img src={checkIcon} alt="" />
-              ) : (
-                <div className="radio"></div>
-              )}
+      ) : (
+        <>
+          <p className="question_count">
+            <span>{questionData?.data?.daily_question_count}</span> /{" "}
+            <span>7</span>
+          </p>
+          <div className="big_count">
+            <div className="big_count_brown"></div>
+            <span>{questionData?.data?.daily_question_reward}</span>
+          </div>
+          <div className="question_area">
+            <div className="question_box">
+              <div className="progress">
+                <CircularProgressbar
+                  value={questionData?.data?.daily_question_count}
+                  styles={buildStyles({
+                    pathColor: `#1c0e00`,
+                    textColor: "#1c0e00",
+                    trailColor: "#faa661",
+                    backgroundColor: "white",
+                    textSize: 40,
+                  })}
+                  maxValue={7}
+                  text={`${questionData?.data?.daily_question_count}`}
+                />
+              </div>
+              <p>{questionData?.data?.question}</p>
             </div>
-          );
-        })}
-      </div>
-      <button className="next_btn">
-        <span>Next</span>
-      </button>
+          </div>
+          <div className="options">
+            {questionData?.data?.options?.map((opt: string, idx: number) => {
+              return (
+                <div
+                  className={`option ${selected === idx ? "selected" : ""}`}
+                  key={idx}
+                  onClick={() => {
+                    setselected(idx);
+                    setselectedAnswer(opt);
+                  }}
+                >
+                  <span>{opt}</span>
+                  {selected === idx ? (
+                    <img src={checkIcon} alt="" />
+                  ) : (
+                    <div className="radio"></div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+          <button
+            className="next_btn"
+            onClick={() => {
+              handleAnswer(selectedAnswer);
+              handleMarkQuestion({ id: questionData?.data?.id });
+              handleGetQuestion({});
+            }}
+            disabled={selectedAnswer ? false : true}
+          >
+            <span>Next</span>
+          </button>
+        </>
+      )}
     </div>
   );
 };

@@ -5,7 +5,7 @@ const LeaderItem = ({
   user,
   count,
 }: {
-  user: { name: string; score: number };
+  user: { id: string; buz_tokens: number };
   count: number;
 }) => {
   return (
@@ -17,9 +17,9 @@ const LeaderItem = ({
       </div>
       <div className="leaderboard_user">
         <b>
-          <p>{user?.name}</p>
+          <p>{user?.id}</p>
         </b>
-        <p>{user?.score}</p>
+        <p>{user?.buz_tokens}</p>
       </div>
     </div>
   );
@@ -31,7 +31,7 @@ export const OtherLeaderItem = ({
   user,
   count,
 }: {
-  user: { name: string; score: number };
+  user: { id: string; buz_tokens: number };
   count: number;
 }) => {
   return (
@@ -41,8 +41,8 @@ export const OtherLeaderItem = ({
         <div className="user_img">
           <img src="" alt="" />
         </div>
-        <span>{user?.name}</span>
-        <span>{user?.score}</span>
+        <span>{user?.id}</span>
+        <span>{user?.buz_tokens}</span>
       </div>
     </div>
   );

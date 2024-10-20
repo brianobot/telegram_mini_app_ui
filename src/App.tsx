@@ -6,10 +6,17 @@ import Leaderboard from "./pages/leaderboard";
 import Tasks from "./pages/tasks";
 import Profile from "./pages/profile";
 import AppWrapper from "./components/app_wrapper";
+import { configure } from "axios-hooks";
+import axios from "./config/axios";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
+
+configure({ axios });
 
 function App() {
   return (
     <BrowserRouter>
+      <ToastContainer />
       <Routes>
         <Route path="/" element={<Welcome />} />
         <Route path="/app/" element={<AppWrapper />}>
