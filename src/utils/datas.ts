@@ -9,3 +9,48 @@ export const navdata = [
   { url: "/app/tasks", icon: taskIcon },
   { url: "/app/profile", icon: profileIcon },
 ];
+
+export const tasks = [
+  { task: "Follow us on us", action: "Do" },
+  {
+    task: "Be one of the first 4,000 players to refer 7 users",
+    action: "Claim",
+  },
+  {
+    task: "Be one of the first 4,000 players to earn 40,000 BUZ from quiz",
+    action: "Claim",
+  },
+  { task: "Follow us on us", action: "Do" },
+  { task: "Follow us on us", action: "Claim" },
+];
+
+export const leaderboardData = [
+  {
+    name: "Kamelot Jones",
+    score: 1000,
+  },
+  {
+    name: "Kamelot Jones",
+    score: 1000,
+  },
+  {
+    name: "Kamelot Jones",
+    score: 1000,
+  },
+  {
+    name: "Kamelot Jones",
+    score: 1000,
+  },
+  {
+    name: "Kamelot Jones",
+    score: 1000,
+  },
+  {
+    name: "Kamelot Jones",
+    score: 1000,
+  },
+  {
+    name: "Kamelot Jones",
+    score: 1000,
+  },
+];
