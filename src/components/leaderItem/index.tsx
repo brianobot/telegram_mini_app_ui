@@ -10,7 +10,7 @@ const LeaderItem = ({
 }) => {
   return (
     <div className="leader_item">
-      <div className="leaderboard_image">
+      <div className={`leaderboard_image ${count === 1 ? "crown" : ""}`}>
         {count === 1 && <img src={crown} alt="top leaderboard icon" />}
         <img src="" alt="" />
         <span className="leader_count">{count}</span>

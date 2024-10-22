@@ -17,15 +17,19 @@ function App() {
   return (
     <BrowserRouter>
       <ToastContainer />
-      <Routes>
-        <Route path="/" element={<Welcome />} />
-        <Route path="/app/" element={<AppWrapper />}>
-          <Route path="home" element={<Home />} />
-          <Route path="leaderboard" element={<Leaderboard />} />
-          <Route path="tasks" element={<Tasks />} />
-          <Route path="profile" element={<Profile />} />
-        </Route>
-      </Routes>
+      {window.innerWidth > 800 ? (
+        <p>Visit on mobile</p>
+      ) : (
+        <Routes>
+          <Route path="/" element={<Welcome />} />
+          <Route path="/app/" element={<AppWrapper />}>
+            <Route path="home" element={<Home />} />
+            <Route path="leaderboard" element={<Leaderboard />} />
+            <Route path="tasks" element={<Tasks />} />
+            <Route path="profile" element={<Profile />} />
+          </Route>
+        </Routes>
+      )}
     </BrowserRouter>
   );
 }

@@ -31,15 +31,54 @@ const useRequests = () => {
     });
   };
 
+  // get user
+  const [{ ...userData }, getUser] = useAxios({}, { manual: true });
+
+  const handleGetUser = () => {
+    getUser({
+      method: "get",
+      url: `/users/`,
+    });
+  };
+
+  // get tasks
+  const [{ ...tasks }, getTasks] = useAxios({}, { manual: true });
+
+  const handleGetTasks = () => {
+    getTasks({
+      method: "get",
+      url: `/tasks/`,
+    });
+  };
+
+  // claim tasks
+  const [{ ...claim }, getClaim] = useAxios({}, { manual: true });
+
+  const handleClaim = (id: string) => {
+    getClaim({
+      method: "get",
+      url: `/tasks/${id}/claim`,
+    });
+  };
+
   return {
-    handleGetQuestion,
     questionData,
+    handleGetQuestion,
 
     question,
     handleMarkQuestion,
 
     leaderboard,
     handleGetLeaderboard,
+
+    userData,
+    handleGetUser,
+
+    tasks,
+    handleGetTasks,
+
+    claim,
+    handleClaim,
   };
 };
 export default useRequests;
