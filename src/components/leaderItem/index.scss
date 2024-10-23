@@ -12,6 +12,10 @@
 
         &.crown {
             border: 3px solid var(--yellow);
+
+            .leader_count {
+                background: var(--yellow);
+            }
         }
 
         img:first-of-type {
