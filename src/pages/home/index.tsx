@@ -12,8 +12,7 @@ const Home = () => {
   const [selectedAnswer, setselectedAnswer] = useState<string>();
 
   // hook to get questions
-  const { handleGetQuestion, questionData, handleMarkQuestion, question } =
-    useRequests();
+  const { handleGetQuestion, questionData, handleMarkQuestion } = useRequests();
 
   // fetch question on page load
   useEffect(() => {
@@ -24,6 +23,7 @@ const Home = () => {
   const handleAnswer = (answer?: string) => {
     if (answer) {
       if (answer === questionData?.data?.answer) {
+        handleMarkQuestion({ id: questionData?.data?.id });
         toast.success(<p>🎉 Correct! </p>);
         setselected(undefined);
         setselectedAnswer(undefined);
@@ -35,12 +35,9 @@ const Home = () => {
     }
   };
 
-  console.log("====================================");
-  console.log(selectedAnswer);
-  console.log("====================================");
   return (
     <div className="home">
-      {questionData?.loading || !questionData?.data ? (
+      {questionData?.loading ? (
         <div className="loader_container">
           <BallTriangle
             height={100}
@@ -53,6 +50,10 @@ const Home = () => {
             visible={true}
           />
         </div>
+      ) : questionData?.error?.response ? (
+        <p className="error_div">
+          <span>{questionData?.error?.response?.data?.detail}</span>
+        </p>
       ) : (
         <>
           <p className="question_count">
@@ -107,7 +108,6 @@ const Home = () => {
             className="next_btn"
             onClick={() => {
               handleAnswer(selectedAnswer);
-              handleMarkQuestion({ id: questionData?.data?.id });
               handleGetQuestion({});
             }}
             disabled={selectedAnswer ? false : true}

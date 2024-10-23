@@ -3,6 +3,20 @@
     width: 100%;
     height: 100vh;
 
+    .error_div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 90%;
+        margin: auto;
+
+        span {
+            font-size: 30px;
+            text-align: center;
+        }
+    }
+
     .loader_container {
         height: 100%;
         width: 100%;

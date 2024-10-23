@@ -40,6 +40,7 @@ const Tasks = () => {
                 is_available: boolean;
                 completed: boolean;
                 id: string;
+                action: string;
               },
               idx: number
             ) => {
@@ -48,14 +49,12 @@ const Tasks = () => {
                   <p>{task?.description}</p>
                   <button
                     className="task_action"
-                    disabled={!task.is_available}
+                    disabled={!task.is_available || task?.completed}
                     onClick={() => {
                       handleClaim(task?.id);
                     }}
                   >
-                    <span>
-                      {task?.is_available && !task?.completed ? "Do" : "Claim"}
-                    </span>
+                    <span>{task?.action}</span>
                   </button>
                 </div>
               );
