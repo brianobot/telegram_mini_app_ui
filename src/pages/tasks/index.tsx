@@ -54,7 +54,7 @@ const Tasks = () => {
                       handleClaim(task?.id);
                     }}
                   >
-                    <span>{task?.action}</span>
+                    <span>{task?.completed ? "Claimed" : task?.action}</span>
                   </button>
                 </div>
               );

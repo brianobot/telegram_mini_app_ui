@@ -1,5 +1,6 @@
 import "./index.scss";
 import crown from "../../assets/png/Group 2.png";
+import profileIcon from "../../assets/svg/profile.svg";
 
 const LeaderItem = ({
   user,
@@ -11,8 +12,10 @@ const LeaderItem = ({
   return (
     <div className="leader_item">
       <div className={`leaderboard_image ${count === 1 ? "crown" : ""}`}>
-        {count === 1 && <img src={crown} alt="top leaderboard icon" />}
-        <img src="" alt="" />
+        {count === 1 && (
+          <img src={crown} alt="top leaderboard icon" className="crown_img" />
+        )}
+        <img src={profileIcon} alt="" className="img" />
         <span className="leader_count">{count}</span>
       </div>
       <div className="leaderboard_user">

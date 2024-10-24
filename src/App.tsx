@@ -10,10 +10,20 @@ import { configure } from "axios-hooks";
 import axios from "./config/axios";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
+import { useEffect } from "react";
 
 configure({ axios });
 
 function App() {
+  useEffect(() => {
+    const tg = window.Telegram.WebApp;
+
+    tg.ready();
+
+    console.log("====================================");
+    console.log(tg, "tg");
+    console.log("====================================");
+  }, []);
   return (
     <BrowserRouter>
       <ToastContainer />
