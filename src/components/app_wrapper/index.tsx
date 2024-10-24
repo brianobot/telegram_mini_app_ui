@@ -6,7 +6,9 @@ const AppWrapper = () => {
   const location = useLocation();
   return (
     <div className="app_wrapper">
-      <Outlet />
+      <div className="app_main">
+        <Outlet />
+      </div>
 
       {/* app navigation */}
       <nav className="bottom_nav_fixed">

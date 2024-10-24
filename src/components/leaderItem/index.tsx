@@ -10,7 +10,7 @@ const LeaderItem = ({
   count: number;
 }) => {
   return (
-    <div className="leader_item">
+    <div className={`leader_item ${count === 1 ? "one" : ""}`}>
       <div className={`leaderboard_image ${count === 1 ? "crown" : ""}`}>
         {count === 1 && (
           <img src={crown} alt="top leaderboard icon" className="crown_img" />
@@ -42,7 +42,7 @@ export const OtherLeaderItem = ({
       <span>{count}</span>
       <div className="user_score">
         <div className="user_img">
-          <img src="" alt="" />
+          <img src={profileIcon} alt="" />
         </div>
         <span>{user?.id}</span>
         <span>{user?.buz_tokens}</span>

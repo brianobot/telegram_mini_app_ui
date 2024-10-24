@@ -2,6 +2,7 @@
     background: var(--brown);
     width: 100%;
     height: 100vh;
+    overflow-y: scroll;
 
     .error_div {
         display: flex;

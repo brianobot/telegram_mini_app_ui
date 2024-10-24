@@ -1,9 +1,15 @@
 .leader_item {
     width: fit-content;
 
+    &.one {
+        margin-top: 0;
+    }
+
+    margin-top: 40px;
+
     .leaderboard_image {
-        width: 100px;
-        height: 100px;
+        width: 80px;
+        height: 80px;
         border-radius: 50%;
         border: 3px solid black;
         position: relative;
@@ -83,10 +89,13 @@
         }
 
         .user_img {
-            width: 40px;
-            height: 40px;
+            width: 30px;
+            height: 30px;
             border-radius: 50%;
             border: 1px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
     }
 }

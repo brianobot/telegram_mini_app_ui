@@ -1,13 +1,19 @@
 .app_wrapper {
     position: relative;
     height: 100vh;
+    background: var(--brown);
+
+    .app_main {
+        max-height: calc(100vh - 95px);
+        overflow-y: scroll;
+    }
 
     .bottom_nav_fixed {
         position: fixed;
         width: 90%;
         padding: 10px 30px;
         background: var(--yellow);
-        bottom: 60px;
+        bottom: 40px;
         left: 50%;
         transform: translateX(-50%);
         border-radius: var(--radius);
