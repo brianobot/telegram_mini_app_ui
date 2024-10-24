@@ -1,0 +1,15 @@
+.mobile_warning {
+    height: 100vh;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    background: var(--brown);
+
+    >p {
+        width: 90%;
+        margin: auto;
+        text-align: center;
+        font-size: 32px;
+    }
+}

@@ -10,6 +10,7 @@ import { configure } from "axios-hooks";
 import axios from "./config/axios";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
+import MobileWaning from "./components/mobile_warning";
 
 configure({ axios });
 
@@ -18,7 +19,7 @@ function App() {
     <BrowserRouter>
       <ToastContainer />
       {window.innerWidth > 800 ? (
-        <p>Visit on mobile</p>
+        <MobileWaning />
       ) : (
         <Routes>
           <Route path="/" element={<Welcome />} />
