@@ -19,6 +19,13 @@ const Tasks = () => {
       toast.error(claim?.error?.response?.data?.detail);
     }
   }, [claim?.error]);
+
+  useEffect(() => {
+    if (claim?.data) {
+      toast.success("🎉 Task claimed successfully!");
+    }
+  }, [claim?.data]);
+
   return (
     <div className="tasks">
       {tasks?.loading || !tasks?.data ? (

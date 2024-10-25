@@ -29,7 +29,7 @@ const Profile = () => {
       ) : (
         <div className="profile_top">
           <img src={bee} alt="" />
-          <p className="name">{userData?.data?.id}</p>
+          <p className="name">{userData?.data?.fullname}</p>
           <div className="referral_area">
             <div className="referra_link">
               <span>{userData?.data?.referral_link}</span>

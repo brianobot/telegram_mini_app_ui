@@ -12,7 +12,8 @@ const Home = () => {
   const [selectedAnswer, setselectedAnswer] = useState<string>();
 
   // hook to get questions
-  const { handleGetQuestion, questionData, handleMarkQuestion } = useRequests();
+  const { handleGetQuestion, questionData, handleMarkQuestion, question } =
+    useRequests();
 
   // fetch question on page load
   useEffect(() => {
@@ -23,14 +24,21 @@ const Home = () => {
   const handleAnswer = (answer?: string) => {
     if (answer) {
       if (answer === questionData?.data?.answer) {
-        handleMarkQuestion({ id: questionData?.data?.id });
-        toast.success(<p>🎉 Correct! </p>, { autoClose: 50000 });
-        setselected(undefined);
-        setselectedAnswer(undefined);
+        handleMarkQuestion({ id: questionData?.data?.id })
+          .then(() => {
+            toast.success(<p>🎉 Correct! </p>);
+            setselected(undefined);
+            setselectedAnswer(undefined);
+            handleGetQuestion({});
+          })
+          .catch((err) => {
+            toast.error(err?.response?.data?.detail);
+          });
       } else {
-        toast.error(<p>❌ Wrong!</p>, { autoClose: 50000 });
+        toast.error(<p>Wrong!</p>);
         setselected(undefined);
         setselectedAnswer(undefined);
+        handleGetQuestion({});
       }
     }
   };
@@ -108,11 +116,23 @@ const Home = () => {
             className="next_btn"
             onClick={() => {
               handleAnswer(selectedAnswer);
-              handleGetQuestion({});
             }}
             disabled={selectedAnswer ? false : true}
           >
-            <span>Next</span>
+            {question?.loading ? (
+              <BallTriangle
+                height={30}
+                width={30}
+                radius={5}
+                color="var(--brown)"
+                ariaLabel="ball-triangle-loading"
+                wrapperStyle={{}}
+                wrapperClass=""
+                visible={true}
+              />
+            ) : (
+              <span>Next</span>
+            )}
           </button>
         </>
       )}

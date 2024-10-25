@@ -6,7 +6,7 @@ const LeaderItem = ({
   user,
   count,
 }: {
-  user: { id: string; buz_tokens: number };
+  user: { buz_tokens: number; fullname: string };
   count: number;
 }) => {
   return (
@@ -20,7 +20,7 @@ const LeaderItem = ({
       </div>
       <div className="leaderboard_user">
         <b>
-          <p>{user?.id}</p>
+          <p>{user?.fullname}</p>
         </b>
         <p>{user?.buz_tokens}</p>
       </div>

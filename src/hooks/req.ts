@@ -4,15 +4,15 @@ const useRequests = () => {
   // get questions
   const [{ ...questionData }, getQuestion] = useAxios({}, { manual: true });
 
-  const handleGetQuestion = ({ id }: { id?: string }) => {
-    getQuestion({ method: "get", url: `/question/${id ? id : ""}` });
+  const handleGetQuestion = async ({ id }: { id?: string }) => {
+    await getQuestion({ method: "get", url: `/question/${id ? id : ""}` });
   };
 
   // mark question as answered
   const [{ ...question }, markQuestion] = useAxios({}, { manual: true });
 
-  const handleMarkQuestion = ({ id }: { id?: string }) => {
-    markQuestion({
+  const handleMarkQuestion = async ({ id }: { id?: string }) => {
+    await markQuestion({
       method: "post",
       url: `/answered/`,
       data: {
@@ -24,8 +24,8 @@ const useRequests = () => {
   // get leaderboard
   const [{ ...leaderboard }, getLeaderboard] = useAxios({}, { manual: true });
 
-  const handleGetLeaderboard = () => {
-    getLeaderboard({
+  const handleGetLeaderboard = async () => {
+    await getLeaderboard({
       method: "get",
       url: `/leaderboard/`,
     });
@@ -34,8 +34,8 @@ const useRequests = () => {
   // get user
   const [{ ...userData }, getUser] = useAxios({}, { manual: true });
 
-  const handleGetUser = () => {
-    getUser({
+  const handleGetUser = async () => {
+    await getUser({
       method: "get",
       url: `/users/`,
     });
@@ -44,8 +44,8 @@ const useRequests = () => {
   // get tasks
   const [{ ...tasks }, getTasks] = useAxios({}, { manual: true });
 
-  const handleGetTasks = () => {
-    getTasks({
+  const handleGetTasks = async () => {
+    await getTasks({
       method: "get",
       url: `/tasks/`,
     });
@@ -54,8 +54,8 @@ const useRequests = () => {
   // claim tasks
   const [{ ...claim }, getClaim] = useAxios({}, { manual: true });
 
-  const handleClaim = (id: string) => {
-    getClaim({
+  const handleClaim = async (id: string) => {
+    await getClaim({
       method: "get",
       url: `/tasks/${id}/claim/`,
     });
