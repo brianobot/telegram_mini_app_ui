@@ -57,7 +57,7 @@ const useRequests = () => {
   const handleClaim = (id: string) => {
     getClaim({
       method: "get",
-      url: `/tasks/${id}/claim`,
+      url: `/tasks/${id}/claim/`,
     });
   };
 

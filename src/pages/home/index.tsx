@@ -24,11 +24,11 @@ const Home = () => {
     if (answer) {
       if (answer === questionData?.data?.answer) {
         handleMarkQuestion({ id: questionData?.data?.id });
-        toast.success(<p>🎉 Correct! </p>);
+        toast.success(<p>🎉 Correct! </p>, { autoClose: 50000 });
         setselected(undefined);
         setselectedAnswer(undefined);
       } else {
-        toast.error(<p>❌ Wrong!</p>);
+        toast.error(<p>❌ Wrong!</p>, { autoClose: 50000 });
         setselected(undefined);
         setselectedAnswer(undefined);
       }

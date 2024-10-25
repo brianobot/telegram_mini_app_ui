@@ -13,3 +13,13 @@ html {
   --active_boottom_nav: #aa6c39;
   --dark_brown: #964b00;
 }
+
+/* Custom CSS to vertically center the close button */
+.Toastify__close-button {
+  align-self: center !important;
+}
+
+/* Optionally, adjust the toast container height */
+.Toastify__toast {
+  display: flex;
+}

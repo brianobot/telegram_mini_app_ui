@@ -45,6 +45,9 @@
                 padding: 8px 0;
                 border: none;
                 outline: none;
+                display: flex;
+                justify-content: center;
+                align-items: center;
 
                 &:disabled {
                     background: grey;

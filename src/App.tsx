@@ -17,7 +17,7 @@ configure({ axios });
 function App() {
   return (
     <BrowserRouter>
-      <ToastContainer />
+      <ToastContainer hideProgressBar={true} />
       {window.innerWidth > 800 ? (
         <MobileWaning />
       ) : (

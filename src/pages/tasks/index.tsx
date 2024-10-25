@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import useRequests from "../../hooks/req";
 import "./index.scss";
 import { BallTriangle } from "react-loader-spinner";
@@ -6,6 +6,9 @@ import { toast } from "react-toastify";
 
 const Tasks = () => {
   const { handleGetTasks, tasks, handleClaim, claim } = useRequests();
+
+  const [claimId, setClaimId] = useState<string>();
+
   useEffect(() => {
     handleGetTasks();
   }, []);
@@ -18,7 +21,7 @@ const Tasks = () => {
   }, [claim?.error]);
   return (
     <div className="tasks">
-      {tasks?.loading || !tasks?.data || claim?.loading ? (
+      {tasks?.loading || !tasks?.data ? (
         <div className="loader_container">
           <BallTriangle
             height={100}
@@ -51,10 +54,28 @@ const Tasks = () => {
                     className="task_action"
                     disabled={!task.is_available || task?.completed}
                     onClick={() => {
+                      setClaimId(task?.id);
                       handleClaim(task?.id);
                     }}
                   >
-                    <span>{task?.completed ? "Claimed" : task?.action}</span>
+                    <span>
+                      {claimId === task?.id && claim?.loading ? (
+                        <BallTriangle
+                          height={30}
+                          width={30}
+                          radius={5}
+                          color="var(--dark_brown)"
+                          ariaLabel="ball-triangle-loading"
+                          wrapperStyle={{}}
+                          wrapperClass=""
+                          visible={true}
+                        />
+                      ) : task?.completed ? (
+                        "Claimed"
+                      ) : (
+                        task?.action
+                      )}
+                    </span>
                   </button>
                 </div>
               );
