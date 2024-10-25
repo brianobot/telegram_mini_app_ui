@@ -1,5 +1,5 @@
 import "./index.scss";
-import bee from "../../assets/png/Pbs-Nature-Bee-GIF-by-Nature-o-unscreen 1.png";
+import bee from "../../assets/png/Pbs-Nature-Bee-GIF-by-Nature-o-unscreen.gif";
 import useRequests from "../../hooks/req";
 import { useEffect } from "react";
 import { toast } from "react-toastify";

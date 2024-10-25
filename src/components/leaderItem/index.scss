@@ -1,5 +1,7 @@
 .leader_item {
-    width: fit-content;
+    width: 28%;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
 
     &.one {
         margin-top: 0;
@@ -71,7 +73,7 @@
     margin-bottom: 25px;
     padding: 15px;
     border-radius: var(--radius);
-    gap: 10px;
+    gap: 15px;
 
     >span {
         font-size: 20px;
@@ -83,6 +85,12 @@
         flex-basis: 95%;
         margin-left: auto;
         gap: 5px;
+
+        span:first-of-type {
+            flex-basis: 65%;
+            display: flex;
+            flex-wrap: wrap;
+        }
 
         span:last-of-type {
             margin-left: auto;
