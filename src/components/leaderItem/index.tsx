@@ -34,7 +34,7 @@ export const OtherLeaderItem = ({
   user,
   count,
 }: {
-  user: { id: string; buz_tokens: number };
+  user: { id: string; buz_tokens: number; fullname: string };
   count: number;
 }) => {
   return (
@@ -44,7 +44,7 @@ export const OtherLeaderItem = ({
         <div className="user_img">
           <img src={profileIcon} alt="" />
         </div>
-        <span>{user?.id}</span>
+        <span>{user?.fullname}</span>
         <span>{user?.buz_tokens}</span>
       </div>
     </div>

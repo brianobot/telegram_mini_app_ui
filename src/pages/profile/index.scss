@@ -18,12 +18,17 @@
         >img {
             display: block;
             margin: 0 auto 25px;
+            width: 50%;
         }
 
         p.name {
             font-weight: 100;
             font-size: 34px;
             text-align: center;
+            width: 90%;
+            margin: auto;
+            text-overflow: ellipsis;
+            overflow-x: hidden;
         }
 
         .referral_area {

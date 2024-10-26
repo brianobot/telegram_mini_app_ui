@@ -44,7 +44,10 @@ const Leaderboard = () => {
           </div>
           <div className="bottom_leaderboard">
             {leaderboard?.data?.map(
-              (dataItem: { id: string; buz_tokens: number }, idx: number) => {
+              (
+                dataItem: { id: string; buz_tokens: number; fullname: string },
+                idx: number
+              ) => {
                 if (idx > 2 && idx < 7)
                   return <OtherLeaderItem user={dataItem} count={idx} />;
               }
