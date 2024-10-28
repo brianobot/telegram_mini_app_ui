@@ -6,7 +6,7 @@ const LeaderItem = ({
   user,
   count,
 }: {
-  user: { buz_tokens: number; fullname: string };
+  user: { buz_tokens: number; fullname: string; profile_image: string };
   count: number;
 }) => {
   return (
@@ -15,7 +15,7 @@ const LeaderItem = ({
         {count === 1 && (
           <img src={crown} alt="top leaderboard icon" className="crown_img" />
         )}
-        <img src={profileIcon} alt="" className="img" />
+        <img src={user?.profile_image} alt="" className="img" />
         <span className="leader_count">{count}</span>
       </div>
       <div className="leaderboard_user">
@@ -34,7 +34,12 @@ export const OtherLeaderItem = ({
   user,
   count,
 }: {
-  user: { id: string; buz_tokens: number; fullname: string };
+  user: {
+    id: string;
+    buz_tokens: number;
+    fullname: string;
+    profile_image: string;
+  };
   count: number;
 }) => {
   return (
@@ -42,7 +47,7 @@ export const OtherLeaderItem = ({
       <span>{count}</span>
       <div className="user_score">
         <div className="user_img">
-          <img src={profileIcon} alt="" />
+          <img src={user?.profile_image} alt="" />
         </div>
         <span>{user?.fullname}</span>
         <span>{user?.buz_tokens}</span>
