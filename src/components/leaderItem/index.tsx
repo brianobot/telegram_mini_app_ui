@@ -1,6 +1,5 @@
 import "./index.scss";
 import crown from "../../assets/png/Group 2.png";
-import profileIcon from "../../assets/svg/profile.svg";
 
 const LeaderItem = ({
   user,
