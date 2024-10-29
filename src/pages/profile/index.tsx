@@ -1,5 +1,5 @@
 import "./index.scss";
-import default_image from "../../assets/png/default_image.jpg";
+// import default_image from "../../assets/png/default_image.jpg";
 import useRequests from "../../hooks/req";
 import { useEffect } from "react";
 import { toast } from "react-toastify";
