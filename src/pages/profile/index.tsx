@@ -28,7 +28,7 @@ const Profile = () => {
         </div>
       ) : (
         <div className="profile_top">
-          <img src={userData.data?.profile_image} onError={(e) => { e.target.src = "/default_image.jpg"; }} alt="" className="profile_image"/>
+          <img src={userData.data?.profile_image} onError={(e) => { (e.target as HTMLImageElement).src = "/default_image.jpg"; }} alt="" className="profile_image"/>
   
           <p className="name">{userData?.data?.fullname}</p>
           <div className="referral_area">
