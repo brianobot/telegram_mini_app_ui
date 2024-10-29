@@ -14,6 +14,7 @@
 
     .top_three {
         padding: 30px 0;
+        height: 100%;
 
         >h3 {
             text-align: center;
@@ -28,9 +29,13 @@
         }
 
         .bottom_leaderboard {
-            width: 90%;
-            margin: auto;
+            width: 100%;
+            padding: 5%;
+            padding-top: 20%;
             margin-top: 100px;
+            height: 69%;
+            background-image: url("../../assets/png/Rectangle1.png");
+            background-size: contain;
         }
     }
 }
