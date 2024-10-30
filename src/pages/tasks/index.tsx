@@ -61,6 +61,9 @@ const Tasks = () => {
                     className="task_action"
                     disabled={!task.is_available || task?.completed}
                     onClick={() => {
+                      if (task?.action === "do") {
+                        window.open("https://twtr.to/Cvh31", "_self");
+                      }
                       setClaimId(task?.id);
                       handleClaim(task?.id);
                     }}

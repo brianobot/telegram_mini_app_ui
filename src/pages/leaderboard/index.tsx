@@ -1,8 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import LeaderItem, { OtherLeaderItem } from "../../components/leaderItem";
 import "./index.scss";
 import useRequests from "../../hooks/req";
 import { BallTriangle } from "react-loader-spinner";
+import bg from "../../assets/png/Rectangle 1 2.png";
 
 const Leaderboard = () => {
   const { handleGetLeaderboard, leaderboard } = useRequests();
@@ -13,8 +14,35 @@ const Leaderboard = () => {
     handleGetLeaderboard();
     handleGetUser();
   }, []);
+
+  const [transforedLeaderData, setTransformLeaderboard] = useState<[]>();
+
+  useEffect(() => {
+    if (leaderboard?.data && userData?.data) {
+      if (userData?.data?.position > 6) {
+        const dataX = leaderboard?.data
+          ?.map((leader: unknown, idx: number) => {
+            if (idx < 6) {
+              return leader;
+            }
+          })
+          .filter((item: unknown) => item && item);
+
+        dataX?.push(userData?.data);
+        setTransformLeaderboard(dataX);
+      } else {
+        setTransformLeaderboard(
+          leaderboard?.data?.map(
+            (leader: unknown, idx: number) => idx > 2 && leader
+          )
+        );
+      }
+    }
+  }, [leaderboard?.data, userData?.data]);
+
   return (
     <div className="leaderboard">
+      <img src={bg} alt="backhround" className="bg" />
       {leaderboard?.loading || !leaderboard?.data ? (
         <div className="loader_container">
           <BallTriangle
@@ -43,7 +71,7 @@ const Leaderboard = () => {
             )}
           </div>
           <div className="bottom_leaderboard">
-            {leaderboard?.data?.map(
+            {transforedLeaderData?.map(
               (
                 dataItem: {
                   id: string;
@@ -53,7 +81,7 @@ const Leaderboard = () => {
                 },
                 idx: number
               ) => {
-                if (idx > 2 && idx < 7)
+                if (idx > 2)
                   return <OtherLeaderItem user={dataItem} count={idx + 1} />;
               }
             )}

@@ -1,6 +1,6 @@
 import { Link, Outlet, useLocation } from "react-router-dom";
 import "./index.scss";
-import { navdata } from "../../utils/datas";
+import { navdata } from "../../utils/datas.ts";
 
 const AppWrapper = () => {
   const location = useLocation();
@@ -12,7 +12,7 @@ const AppWrapper = () => {
 
       {/* app navigation */}
       <nav className="bottom_nav_fixed">
-        {navdata?.map((item, idx) => {
+        {navdata?.map((item: { url: string; icon: string }, idx: number) => {
           return (
             <Link
               key={idx}

@@ -1,5 +1,5 @@
 import "./index.scss";
-import bee from "../../assets/png/Pbs-Nature-Bee-GIF-by-Nature-o-unscreen.gif";
+
 import useRequests from "../../hooks/req";
 import { useEffect } from "react";
 import { toast } from "react-toastify";
@@ -28,7 +28,10 @@ const Profile = () => {
         </div>
       ) : (
         <div className="profile_top">
-          <img src={bee} alt="" />
+          <div className="img_holder">
+            <img src={userData?.data?.profile_image} alt="" />
+          </div>
+
           <p className="name">{userData?.data?.fullname}</p>
           <div className="referral_area">
             <div className="referra_link">

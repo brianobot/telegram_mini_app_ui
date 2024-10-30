@@ -23,34 +23,3 @@ export const tasks = [
   { task: "Follow us on us", action: "Do" },
   { task: "Follow us on us", action: "Claim" },
 ];
-
-export const leaderboardData = [
-  {
-    name: "Kamelot Jones",
-    score: 1000,
-  },
-  {
-    name: "Kamelot Jones",
-    score: 1000,
-  },
-  {
-    name: "Kamelot Jones",
-    score: 1000,
-  },
-  {
-    name: "Kamelot Jones",
-    score: 1000,
-  },
-  {
-    name: "Kamelot Jones",
-    score: 1000,
-  },
-  {
-    name: "Kamelot Jones",
-    score: 1000,
-  },
-  {
-    name: "Kamelot Jones",
-    score: 1000,
-  },
-];
