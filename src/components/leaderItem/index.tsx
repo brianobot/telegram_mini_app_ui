@@ -31,19 +31,18 @@ export default LeaderItem;
 
 export const OtherLeaderItem = ({
   user,
-  count,
 }: {
   user: {
     id: string;
     buz_tokens: number;
     fullname: string;
     profile_image: string;
+    position: number;
   };
-  count: number;
 }) => {
   return (
     <div className="other_leader">
-      <span>{count}</span>
+      <span>{user?.position}</span>
       <div className="user_score">
         <div className="user_img">
           <img src={user?.profile_image} alt="" />

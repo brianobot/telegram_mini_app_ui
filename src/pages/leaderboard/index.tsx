@@ -42,7 +42,6 @@ const Leaderboard = () => {
 
   return (
     <div className="leaderboard">
-      <img src={bg} alt="backhround" className="bg" />
       {leaderboard?.loading || !leaderboard?.data ? (
         <div className="loader_container">
           <BallTriangle
@@ -57,36 +56,39 @@ const Leaderboard = () => {
           />
         </div>
       ) : (
-        <div className="top_three">
-          <h3>#{userData?.data?.position}</h3>
-          <div className="top_container">
-            {leaderboard?.data?.[1] && (
-              <LeaderItem user={leaderboard?.data?.[1]} count={2} />
-            )}
-            {leaderboard?.data?.[0] && (
-              <LeaderItem user={leaderboard?.data?.[0]} count={1} />
-            )}
-            {leaderboard?.data?.[2] && (
-              <LeaderItem user={leaderboard?.data?.[2]} count={3} />
-            )}
+        <>
+          <img src={bg} alt="backhround" className="bg" />
+          <div className="top_three">
+            <h3>#{userData?.data?.position}</h3>
+            <div className="top_container">
+              {leaderboard?.data?.[1] && (
+                <LeaderItem user={leaderboard?.data?.[1]} count={2} />
+              )}
+              {leaderboard?.data?.[0] && (
+                <LeaderItem user={leaderboard?.data?.[0]} count={1} />
+              )}
+              {leaderboard?.data?.[2] && (
+                <LeaderItem user={leaderboard?.data?.[2]} count={3} />
+              )}
+            </div>
+            <div className="bottom_leaderboard">
+              {transforedLeaderData?.map(
+                (
+                  dataItem: {
+                    id: string;
+                    buz_tokens: number;
+                    fullname: string;
+                    profile_image: string;
+                    position: number;
+                  },
+                  idx: number
+                ) => {
+                  if (idx > 2) return <OtherLeaderItem user={dataItem} />;
+                }
+              )}
+            </div>
           </div>
-          <div className="bottom_leaderboard">
-            {transforedLeaderData?.map(
-              (
-                dataItem: {
-                  id: string;
-                  buz_tokens: number;
-                  fullname: string;
-                  profile_image: string;
-                },
-                idx: number
-              ) => {
-                if (idx > 2)
-                  return <OtherLeaderItem user={dataItem} count={idx + 1} />;
-              }
-            )}
-          </div>
-        </div>
+        </>
       )}
     </div>
   );
