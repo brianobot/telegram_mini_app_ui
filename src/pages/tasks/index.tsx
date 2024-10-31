@@ -8,6 +8,7 @@ const Tasks = () => {
   const { handleGetTasks, tasks, handleClaim, claim } = useRequests();
 
   const [claimId, setClaimId] = useState<string>();
+  const [claimAct, setClaimAct] = useState<string>();
 
   useEffect(() => {
     handleGetTasks();
@@ -22,9 +23,12 @@ const Tasks = () => {
 
   useEffect(() => {
     if (claim?.data) {
+      if (claimAct === "do") {
+        window.open("https://twtr.to/Cvh31", "_self");
+      }
       toast.success("🎉 Task claimed successfully!");
     }
-  }, [claim?.data]);
+  }, [claim?.data, claimAct]);
 
   return (
     <div className="tasks">
@@ -61,11 +65,9 @@ const Tasks = () => {
                     className="task_action"
                     disabled={!task.is_available || task?.completed}
                     onClick={() => {
+                      setClaimAct(task.action);
                       setClaimId(task?.id);
                       handleClaim(task?.id);
-                      if (task?.action === "do") {
-                        window.open("https://twtr.to/Cvh31", "_self");
-                      }
                     }}
                   >
                     <span>
