@@ -7,7 +7,7 @@
         margin-top: 0;
     }
 
-    margin-top: 40px;
+    margin-top: 50px;
 
     .leaderboard_image {
         width: 80px;
@@ -20,6 +20,7 @@
 
         &.crown {
             border: 3px solid var(--yellow);
+            margin-top: 26px;
 
             .leader_count {
                 background: var(--yellow);

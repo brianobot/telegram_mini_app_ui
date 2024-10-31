@@ -61,11 +61,11 @@ const Tasks = () => {
                     className="task_action"
                     disabled={!task.is_available || task?.completed}
                     onClick={() => {
+                      setClaimId(task?.id);
+                      handleClaim(task?.id);
                       if (task?.action === "do") {
                         window.open("https://twtr.to/Cvh31", "_self");
                       }
-                      setClaimId(task?.id);
-                      handleClaim(task?.id);
                     }}
                   >
                     <span>
