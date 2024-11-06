@@ -17,8 +17,8 @@ const Welcome = () => {
     <div className="welcome">
       <div className="welcome_center">
         <img src={welcomeLogo} alt="" />
-        {/* <h1>HELLO</h1>
-        <p>{userData?.data?.fullname}</p> */}
+        {/* <h1>Welcome to Buzmode</h1> */}
+        <p>Welcome to Buzmode</p>
       </div>
       <button className="start_button" onClick={() => navigate("/app/home")}>
         <span>Start game</span>
