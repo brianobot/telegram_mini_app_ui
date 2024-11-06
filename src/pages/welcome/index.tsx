@@ -7,7 +7,7 @@ import { useEffect } from "react";
 const Welcome = () => {
   const navigate = useNavigate();
 
-  const { handleGetUser } = useRequests();
+  const { handleGetUser, userData } = useRequests();
 
   useEffect(() => {
     handleGetUser();
@@ -17,8 +17,8 @@ const Welcome = () => {
     <div className="welcome">
       <div className="welcome_center">
         <img src={welcomeLogo} alt="" />
-        {/* <h1>Welcome to Buzmode</h1> */}
-        <p>Welcome to Buzmode</p>
+        <h1>Welcome to Buzmode</h1>
+        <p>{userData?.data?.fullname}</p>
       </div>
       <button className="start_button" onClick={() => navigate("/app/home")}>
         <span>Start game</span>
