@@ -25,7 +25,7 @@ const Tasks = () => {
   useEffect(() => {
     if (claim?.data) {
       if (claimAct === "do") {
-        window.open("https://twtr.to/Cvh31", "_self");
+        window.open("https://x.com/intent/user?screen_name=buzmodeofficial", "_self");
       }
       toast.success("🎉 Task claimed successfully!");
     }
