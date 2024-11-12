@@ -1,5 +1,5 @@
 import "./index.scss";
-import welcomeLogo from "../../assets/png/BUZMODE_LOGO-removebg-preview (2) 1 (1).png";
+import welcomeLogo from "../../assets/png/bebe.jpeg";
 import { useNavigate } from "react-router-dom";
 import useRequests from "../../hooks/req";
 import { useEffect } from "react";

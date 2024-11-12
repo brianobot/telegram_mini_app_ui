@@ -21,6 +21,7 @@ const Tasks = () => {
     }
   }, [claim?.error]);
 
+  // rums when tasks have been claimed successfully
   useEffect(() => {
     if (claim?.data) {
       if (claimAct === "do") {
