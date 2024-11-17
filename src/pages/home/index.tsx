@@ -60,7 +60,12 @@ const Home = () => {
         </div>
       ) : questionData?.error?.response ? (
         <p className="error_div">
-          <span>{questionData?.error?.response?.data?.detail}</span>
+          <span>
+            {questionData?.error?.response?.data?.detail ===
+            "Maximum Daily Question Reached"
+              ? "Max question reached! see you tomorrow."
+              : questionData?.error?.response?.data?.detail}
+          </span>
         </p>
       ) : (
         !questionData?.loading &&

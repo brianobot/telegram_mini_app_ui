@@ -85,14 +85,16 @@
     .user_score {
         display: flex;
         align-items: center;
-        flex-basis: 95%;
+        width: 280px;
         margin-left: auto;
         gap: 5px;
 
         span:first-of-type {
-            flex-basis: 65%;
-            display: flex;
-            flex-wrap: wrap;
+            flex-basis: 55%;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            word-break: break-all;
         }
 
         span:last-of-type {

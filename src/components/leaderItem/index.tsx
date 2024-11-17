@@ -47,7 +47,10 @@ export const OtherLeaderItem = ({
         <div className="user_img">
           <img src={user?.profile_image} alt="" />
         </div>
-        <span>{user?.fullname}</span>
+        <span>
+          {user?.fullname.substring(0, 20) +
+            (user?.fullname?.length > 20 ? "..." : "")}
+        </span>
         <span>{user?.buz_tokens}</span>
       </div>
     </div>

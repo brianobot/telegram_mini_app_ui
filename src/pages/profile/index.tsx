@@ -67,6 +67,13 @@ const Profile = () => {
                 <p>{userData?.data?.buz_token_distro?.events}</p>
               </div>
             </div>
+            <p
+              className="click_direct"
+              onClick={() => window.open("https://t.me/buzmode", "_self")}
+            >
+              Your Buztokens are not verified if you are not in the Buzmode
+              Telegram community! [Click here] to Join
+            </p>
           </div>
         </div>
       )}
